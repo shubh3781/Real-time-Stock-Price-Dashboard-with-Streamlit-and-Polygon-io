@@ -1,0 +1,7 @@
+DateTime==5.4
+pandas==2.2.1
+pd==0.0.4
+plotly==5.19.0
+requests==2.31.0
+st==0.0.8
+streamlit==1.32.0
