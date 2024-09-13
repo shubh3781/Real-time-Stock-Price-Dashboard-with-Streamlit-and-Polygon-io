@@ -1,52 +1,126 @@
-Real-time Stock Price Dashboard with Streamlit and Polygon.io
+# Real-Time Stock Price Dashboard using Streamlit and Polygon.io API
 
-This project is a Streamlit application that empowers users to:
+## Table of Contents
 
-Visualize Real-time Stock Prices: Get the latest stock price data and see how it changes throughout the day.
-Explore Historical Data: Look back in time and analyze stock price trends for a chosen date range.
-Interactive Candlestick Charts: Gain insights from visually appealing candlestick charts that depict the Open, High, Low, and Close prices for a stock over time.
-Key Features:
+- [Overview](#overview)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Key Setup](#api-key-setup)
+- [Code Structure](#code-structure)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
-User-friendly interface for symbol input and time interval selection (real-time or historical)
-Seamless integration with Polygon.io's API to retrieve accurate stock data
-Powerful data processing with Pandas to prepare data for visualization
-Informative candlestick charts using Plotly.js for a clear view of price movements
-Comprehensive error handling for a robust user experience
-Getting Started
+## Overview
 
-Prerequisites: Ensure you have Python 3 and the following libraries installed:
-streamlit
-pandas
-requests
-plotly
-Clone the Repository: Use git clone https://github.com/your-username/stock-price-dashboard.git (Replace your-username with your actual GitHub username).
-API Key: Obtain a free API key from Polygon.io (https://polygon.io/) and replace 'YOUR_POLYGON_IO_API_KEY' with your key in stock_price_dashboard.py.
-Run the Application: Execute python stock_price_dashboard.py in your terminal.
-Usage
+This project is a Streamlit web application that provides real-time and historical stock price data visualization using the [Polygon.io API](https://polygon.io/). Users can input a stock symbol and select a time interval to view candlestick charts representing the Open, High, Low, and Close (OHLC) prices of the stock over the specified period.
 
-Launch the application in your web browser (usually http://localhost:8501).
-Enter a stock symbol (e.g., AAPL, GOOG) in the text input field.
-Select a time interval: Real-time, 1 minute, 5 minutes, 15 minutes, 30 minutes, or 1 hour.
-For real-time data, you'll see the most recent price.
-For historical data, choose a date range using the date pickers provided.
-The application will fetch and visualize the stock price data using a candlestick chart.
-Additional Notes
+## Features
 
-Consider adding comments within your code to improve readability and maintainability.
-Explore advanced customization options offered by Streamlit and Plotly.js to personalize the user interface and charts.
-For real-time updates, investigate libraries like websockets to establish a persistent connection with Polygon.io's API.
-Deployment
+- **Real-Time Stock Prices**: Fetches and displays the latest stock price data.
+- **Historical Data Visualization**: Allows users to select a date range and interval to view historical stock prices.
+- **Interactive Candlestick Charts**: Uses Plotly to generate interactive candlestick charts for data visualization.
+- **User-Friendly Interface**: Built with Streamlit for easy interaction and deployment.
 
-While not covered in detail here, deploying this application online requires additional steps:
+## Requirements
 
-Choose a hosting platform like Heroku or AWS.
-Securely store your API key using environment variables on the deployment platform.
-Contributing
+- Python 3.x
+- Streamlit
+- pandas
+- requests
+- plotly
 
-We welcome contributions to this project! If you have any suggestions, enhancements, or bug fixes, feel free to create a pull request.
+## Installation
 
-License
+1. **Clone the Repository**
 
-This project is licensed under the MIT License (see LICENSE file for details).
+   ```bash
+   git clone https://github.com/yourusername/real-time-stock-dashboard.git
+   cd real-time-stock-dashboard
+   ```
 
-Enjoy exploring and visualizing stock price data with this interactive Streamlit application!
+2. **Create a Virtual Environment**
+
+   ```bash
+   python -m venv venv
+   ```
+
+3. **Activate the Virtual Environment**
+
+   - On Windows:
+
+     ```bash
+     venv\Scripts\activate
+     ```
+
+   - On macOS/Linux:
+
+     ```bash
+     source venv/bin/activate
+     ```
+
+4. **Install the Required Packages**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+   *Note: If `requirements.txt` is not available, install the packages manually:*
+
+   ```bash
+   pip install streamlit pandas requests plotly
+   ```
+
+## Usage
+
+1. **Set Up the Polygon.io API Key**
+
+   - Sign up for a free API key at [Polygon.io](https://polygon.io/).
+   - Replace the `API_KEY` variable in the `get_real_time_price` and `get_historical_price` functions with your API key.
+
+2. **Run the Streamlit App**
+
+   ```bash
+   streamlit run app.py
+   ```
+
+3. **Interact with the App**
+
+   - **Enter Stock Symbol**: Input the stock ticker symbol (e.g., `AAPL` for Apple Inc.).
+   - **Select Time Interval**: Choose between real-time or various historical intervals (1 minute, 5 minutes, etc.).
+   - **Select Date Range** (for historical data): Pick the start and end dates for the data you wish to view.
+   - **View the Candlestick Chart**: The app will display an interactive candlestick chart of the stock's OHLC prices over the selected period.
+
+## API Key Setup
+
+To use the Polygon.io API, you need to obtain an API key:
+
+1. **Sign Up**: Go to [Polygon.io](https://polygon.io/) and sign up for a free account.
+2. **Obtain API Key**: After signing up, navigate to your dashboard to find your API key.
+3. **Update the Code**: Replace the placeholder `API_KEY` in the `app.py` file with your actual API key:
+
+   ```python
+   API_KEY = 'YOUR_ACTUAL_API_KEY'
+   ```
+
+## Code Structure
+
+- **app.py**: The main Streamlit application file containing all the functions and the app's layout.
+
+### Functions
+
+- `get_real_time_price(symbol)`: Fetches real-time stock price data for the given symbol.
+- `get_historical_price(symbol, from_date, to_date, interval)`: Fetches historical stock price data for the given symbol and date range.
+- `display_stock_price(symbol, interval)`: Processes the data and displays the candlestick chart.
+- `main()`: The main function that sets up the Streamlit interface.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- [Streamlit](https://streamlit.io/) for providing an easy-to-use web application framework.
+- [Polygon.io](https://polygon.io/) for providing financial market data APIs.
+- [Plotly](https://plotly.com/python/) for interactive data visualization.
